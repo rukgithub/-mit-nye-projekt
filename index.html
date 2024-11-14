@@ -3,37 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matrix Landing Page | Green Power Denmark</title>
+    <title>Matrix Landing Page | AI Ruben</title>
 
     <!-- Social Media Meta Tags -->
     <meta property="og:title" content="Matrix Landing Page | AI Ruben">
-    <meta property="og:description" content="Udforsk fremtidens magi med Ruben">
-    <meta property="og:image" content="./images/ai-header.jpg">
+    <meta property="og:description" content="Udforsk fremtidens magiske AI-univers med Ruben">
+    <meta property="og:image" content="https://rukgithub.github.io/matrix-landing/images/ai-header.jpg">
     <meta property="og:url" content="https://rukgithub.github.io/matrix-landing/">
     <meta property="og:type" content="website">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Matrix Landing Page | AI Ruben">
-    <meta name="twitter:description" content="Udforsk fremtidens magi med Ruben">
-    <meta name="twitter:image" content="./images/ai-header.jpg">
+    <meta name="twitter:description" content="Udforsk fremtidens magiske AI-univers med Ruben">
+    <meta name="twitter:image" content="https://rukgithub.github.io/matrix-landing/images/ai-header.jpg">
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Innovative AI-øsninger præsenteret gennem et unikt Matrix-inspireret design">
-    <meta name="keywords" content="matrix, Ai, kunstig intelligens, innovation">
-    <meta name="author" content="Green Power Denmark">
+    <meta name="description" content="Træd ind i fremtidens AI-univers med Ruben - hvor innovation møder Matrix">
+    <meta name="keywords" content="AI Ruben, kunstig intelligens, matrix, innovation, fremtid, teknologi">
+    <meta name="author" content="AI Ruben">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <!-- Favicon - Tilføj disse filer i images mappen -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
 
     <style>
+        /* Samme style som før, men med opdaterede farver */
         :root {
             --matrix-green: #00ff00;
             --matrix-dark-green: #003300;
             --matrix-black: #000000;
+            --matrix-blue: #00ffff;
             --transition-speed: 0.3s;
         }
 
+        /* Resten af din eksisterende CSS forbliver den samme */
         * {
             margin: 0;
             padding: 0;
@@ -96,7 +102,7 @@
             margin-bottom: 1rem;
             opacity: 0;
             animation: fadeIn 2s forwards;
-            text-shadow: 0 0 10px var(--matrix-green);
+            text-shadow: 0 0 10px var(--matrix-blue);
         }
 
         .subtitle {
@@ -104,6 +110,7 @@
             opacity: 0;
             animation: fadeIn 2s forwards 0.5s;
             margin-bottom: 2rem;
+            color: var(--matrix-blue);
         }
 
         .cta-button {
@@ -119,6 +126,7 @@
             margin-top: 1rem;
             opacity: 0;
             animation: fadeIn 2s forwards 1s;
+            border-radius: 5px;
         }
 
         .cta-button:hover {
@@ -161,6 +169,7 @@
             z-index: 0;
         }
 
+        /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -182,6 +191,7 @@
 
             .hero-content {
                 padding: 1rem;
+                margin: 0 1rem;
             }
         }
 
@@ -201,7 +211,7 @@
         }
 
         .loading-text {
-            color: var(--matrix-green);
+            color: var(--matrix-blue);
             font-size: 2rem;
             animation: pulse 1s infinite;
         }
@@ -219,35 +229,35 @@
 </head>
 <body>
     <div class="loading">
-        <div class="loading-text">Loading System...</div>
+        <div class="loading-text">Initialiserer AI Matrix...</div>
     </div>
 
     <canvas class="matrix-canvas"></canvas>
 
     <div id="imageModal" class="modal">
-        <img class="modal-content" id="modalImage" alt="Forstørret billede">
+        <img class="modal-content" id="modalImage" alt="Forstørret AI visualisering">
     </div>
 
     <div class="container">
         <section class="hero">
-            <img src="./images/ai-header.jpg" alt="Ruben Matrix Theme" class="hero-image">
+            <img src="./images/ai-header.jpg" alt="AI Ruben Matrix Theme" class="hero-image">
             <div class="hero-content">
-                <h1>Velkommen til Fremtiden</h1>
-                <p class="subtitle">Udforsk Green Power's digitale matrix</p>
-                <a href="#" class="cta-button">Tag Det Grønne Valg</a>
+                <h1>Velkommen til AI Universet</h1>
+                <p class="subtitle">Udforsk fremtidens intelligente matrix med Ruben</p>
+                <a href="#" class="cta-button">Start Din AI Rejse</a>
             </div>
         </section>
     </div>
 
     <script>
-        // Forbedret Matrix Animation
+        // Forbedret Matrix Animation med AI symboler
         const canvas = document.querySelector('.matrix-canvas');
         const ctx = canvas.getContext('2d');
 
         let width = canvas.width = window.innerWidth;
         let height = canvas.height = window.innerHeight;
 
-        const chars = '01GP△⚡☼♻';  // Tilføjet flere relevante symboler
+        const chars = '01AI⚡☼∞⌘';  // AI-relaterede symboler
         const charSize = 14;
         const columns = width / charSize;
         const drops = new Array(Math.ceil(columns)).fill(1);
@@ -257,18 +267,17 @@
             ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
             ctx.fillRect(0, 0, width, height);
 
-            ctx.fillStyle = '#0f0';
-            ctx.font = charSize + 'px monospace';
-
             drops.forEach((drop, i) => {
                 const char = chars[Math.floor(Math.random() * chars.length)];
                 const x = i * charSize;
                 const y = drop * charSize;
 
-                // Tilføj variation i farveintensitet
-                const green = 200 + Math.random() * 55;
-                ctx.fillStyle = `rgb(0, ${green}, 0)`;
+                // Dynamisk farvevariation mellem grøn og blå
+                const hue = Math.random() > 0.5 ? '120' : '180';
+                const lightness = 50 + Math.random() * 10;
+                ctx.fillStyle = `hsl(${hue}, 100%, ${lightness}%)`;
 
+                ctx.font = `${charSize}px monospace`;
                 ctx.fillText(char, x, y);
 
                 if (y > height && Math.random() > 0.975) {
@@ -281,7 +290,7 @@
             requestAnimationFrame(draw);
         }
 
-        // Håndter vindue-størrelse ændringer
+        // Intelligent vindue-størrelse håndtering
         let resizeTimeout;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
@@ -299,7 +308,7 @@
         const modalImg = document.getElementById('modalImage');
         const heroImg = document.querySelector('.hero-image');
 
-        // Preload billede
+        // Preload billede for bedre performance
         const preloadImage = new Image();
         preloadImage.src = heroImg.src;
 
@@ -314,7 +323,7 @@
             document.body.style.overflow = '';
         }
 
-        // Keyboard navigation
+        // Keyboard navigation og tilgængelighed
         document.addEventListener('keydown', function(e) {
             if(e.key === 'Escape' && modal.style.display === "block") {
                 modal.style.display = "none";
@@ -322,7 +331,7 @@
             }
         });
 
-        // Fjern loading screen når siden er loaded
+        // Optimeret loading håndtering
         window.addEventListener('load', function() {
             document.querySelector('.loading').style.display = 'none';
         });
