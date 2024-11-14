@@ -23,14 +23,7 @@
     <meta name="keywords" content="AI Ruben, kunstig intelligens, matrix, innovation, fremtid, teknologi">
     <meta name="author" content="AI Ruben">
 
-    <!-- Favicon - Tilføj disse filer i images mappen -->
-    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
-    <link rel="manifest" href="./site.webmanifest">
-
     <style>
-        /* Samme style som før, men med opdaterede farver */
         :root {
             --matrix-green: #00ff00;
             --matrix-dark-green: #003300;
@@ -39,7 +32,6 @@
             --transition-speed: 0.3s;
         }
 
-        /* Resten af din eksisterende CSS forbliver den samme */
         * {
             margin: 0;
             padding: 0;
@@ -169,7 +161,6 @@
             z-index: 0;
         }
 
-        /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -195,7 +186,6 @@
             }
         }
 
-        /* Loading animation */
         .loading {
             position: fixed;
             top: 0;
@@ -262,7 +252,6 @@
         const columns = width / charSize;
         const drops = new Array(Math.ceil(columns)).fill(1);
 
-        // Optimeret tegning med RequestAnimationFrame
         function draw() {
             ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
             ctx.fillRect(0, 0, width, height);
@@ -290,7 +279,6 @@
             requestAnimationFrame(draw);
         }
 
-        // Intelligent vindue-størrelse håndtering
         let resizeTimeout;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
@@ -300,15 +288,13 @@
             }, 200);
         });
 
-        // Start animation
         requestAnimationFrame(draw);
 
-        // Forbedret modal funktionalitet
+        // Modal funktionalitet
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImage');
         const heroImg = document.querySelector('.hero-image');
 
-        // Preload billede for bedre performance
         const preloadImage = new Image();
         preloadImage.src = heroImg.src;
 
@@ -323,7 +309,6 @@
             document.body.style.overflow = '';
         }
 
-        // Keyboard navigation og tilgængelighed
         document.addEventListener('keydown', function(e) {
             if(e.key === 'Escape' && modal.style.display === "block") {
                 modal.style.display = "none";
@@ -331,7 +316,6 @@
             }
         });
 
-        // Optimeret loading håndtering
         window.addEventListener('load', function() {
             document.querySelector('.loading').style.display = 'none';
         });
