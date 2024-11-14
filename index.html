@@ -49,6 +49,35 @@
             height: 100%;
             object-fit: cover;
             opacity: 0.5;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hero-image:hover {
+            opacity: 0.8;
+            transform: scale(1.02);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            cursor: pointer;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
         }
 
         h1 {
@@ -81,6 +110,8 @@
 </head>
 <body>
     <canvas class="matrix-canvas"></canvas>
+    <div id="imageModal" class="modal">
+        <img class="modal-content" id="modalImage">
 
     <div class="container">
         <section class="hero">
@@ -132,6 +163,28 @@
         });
 
         setInterval(draw, 40);
+
+        // Image modal functionality
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const heroImg = document.querySelector('.hero-image');
+
+        heroImg.onclick = function() {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            modalImg.style.opacity = "1";
+        }
+
+        modal.onclick = function() {
+            this.style.display = "none";
+        }
+
+        // Add keyboard support for closing modal
+        document.addEventListener('keydown', function(e) {
+            if(e.key === 'Escape' && modal.style.display === "block") {
+                modal.style.display = "none";
+            }
+        });
     </script>
 </body>
 </html>
