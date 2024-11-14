@@ -58,6 +58,13 @@
             transform: scale(1.02);
         }
 
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
         .modal {
             display: none;
             position: fixed;
@@ -78,13 +85,6 @@
             max-width: 90%;
             max-height: 90vh;
             object-fit: contain;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            opacity: 0;
-            animation: fadeIn 2s forwards;
         }
 
         @media (max-width: 768px) {
@@ -110,12 +110,14 @@
 </head>
 <body>
     <canvas class="matrix-canvas"></canvas>
+
     <div id="imageModal" class="modal">
         <img class="modal-content" id="modalImage">
+    </div>
 
     <div class="container">
         <section class="hero">
-            <img src="images/ai-header.jpg" alt="AI Theme" class="hero-image">
+            <img src="./images/ai-header.jpg" alt="AI Theme" class="hero-image">
             <div class="hero-content">
                 <h1>Welcome to the Matrix</h1>
             </div>
@@ -134,7 +136,6 @@
         const columns = width / charSize;
         const drops = [];
 
-        // Initialize drops
         for (let i = 0; i < columns; i++) {
             drops[i] = 1;
         }
@@ -179,7 +180,6 @@
             this.style.display = "none";
         }
 
-        // Add keyboard support for closing modal
         document.addEventListener('keydown', function(e) {
             if(e.key === 'Escape' && modal.style.display === "block") {
                 modal.style.display = "none";
