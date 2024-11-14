@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matrix Landing Page</title>
+    <title>Matrix Landing Page | Green Power Denmark</title>
+
+    <!-- Social Media Meta Tags -->
+    <meta property="og:title" content="Matrix Landing Page | AI Ruben">
+    <meta property="og:description" content="Udforsk fremtidens magi med Ruben">
+    <meta property="og:image" content="./images/ai-header.jpg">
+    <meta property="og:url" content="https://rukgithub.github.io/matrix-landing/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Matrix Landing Page | AI Ruben">
+    <meta name="twitter:description" content="Udforsk fremtidens magi med Ruben">
+    <meta name="twitter:image" content="./images/ai-header.jpg">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Innovative AI-øsninger præsenteret gennem et unikt Matrix-inspireret design">
+    <meta name="keywords" content="matrix, Ai, kunstig intelligens, innovation">
+    <meta name="author" content="Green Power Denmark">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+
     <style>
+        :root {
+            --matrix-green: #00ff00;
+            --matrix-dark-green: #003300;
+            --matrix-black: #000000;
+            --transition-speed: 0.3s;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,10 +41,10 @@
         }
 
         body {
-            background-color: #000;
-            color: #0f0;
+            background-color: var(--matrix-black);
+            color: var(--matrix-green);
             font-family: 'Courier New', monospace;
-            overflow: hidden;
+            overflow-x: hidden;
             min-height: 100vh;
         }
 
@@ -39,6 +68,10 @@
         .hero-content {
             position: relative;
             z-index: 2;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
         }
 
         .hero-image {
@@ -50,7 +83,7 @@
             object-fit: cover;
             opacity: 0.5;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all var(--transition-speed) ease;
         }
 
         .hero-image:hover {
@@ -63,6 +96,35 @@
             margin-bottom: 1rem;
             opacity: 0;
             animation: fadeIn 2s forwards;
+            text-shadow: 0 0 10px var(--matrix-green);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            opacity: 0;
+            animation: fadeIn 2s forwards 0.5s;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            background: var(--matrix-dark-green);
+            color: var(--matrix-green);
+            border: 2px solid var(--matrix-green);
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+            opacity: 0;
+            animation: fadeIn 2s forwards 1s;
+        }
+
+        .cta-button:hover {
+            background: var(--matrix-green);
+            color: var(--matrix-black);
+            box-shadow: 0 0 20px var(--matrix-green);
         }
 
         .modal {
@@ -75,6 +137,7 @@
             background: rgba(0, 0, 0, 0.9);
             z-index: 1000;
             cursor: pointer;
+            animation: fadeIn 0.3s ease;
         }
 
         .modal-content {
@@ -85,12 +148,8 @@
             max-width: 90%;
             max-height: 90vh;
             object-fit: contain;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
+            box-shadow: 0 0 30px var(--matrix-green);
+            animation: zoomIn 0.3s ease;
         }
 
         .matrix-canvas {
@@ -106,40 +165,94 @@
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        @keyframes zoomIn {
+            from { transform: translate(-50%, -50%) scale(0.9); }
+            to { transform: translate(-50%, -50%) scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-content {
+                padding: 1rem;
+            }
+        }
+
+        /* Loading animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--matrix-black);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeOut 1s forwards 2s;
+        }
+
+        .loading-text {
+            color: var(--matrix-green);
+            font-size: 2rem;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; visibility: hidden; }
+        }
     </style>
 </head>
 <body>
+    <div class="loading">
+        <div class="loading-text">Loading System...</div>
+    </div>
+
     <canvas class="matrix-canvas"></canvas>
 
     <div id="imageModal" class="modal">
-        <img class="modal-content" id="modalImage">
+        <img class="modal-content" id="modalImage" alt="Forstørret billede">
     </div>
 
     <div class="container">
         <section class="hero">
-            <img src="./images/ai-header.jpg" alt="AI Theme" class="hero-image">
+            <img src="./images/ai-header.jpg" alt="Ruben Matrix Theme" class="hero-image">
             <div class="hero-content">
-                <h1>Welcome to the Matrix</h1>
+                <h1>Velkommen til Fremtiden</h1>
+                <p class="subtitle">Udforsk Green Power's digitale matrix</p>
+                <a href="#" class="cta-button">Tag Det Grønne Valg</a>
             </div>
         </section>
     </div>
 
     <script>
+        // Forbedret Matrix Animation
         const canvas = document.querySelector('.matrix-canvas');
         const ctx = canvas.getContext('2d');
 
         let width = canvas.width = window.innerWidth;
         let height = canvas.height = window.innerHeight;
 
-        const chars = '01';
+        const chars = '01GP△⚡☼♻';  // Tilføjet flere relevante symboler
         const charSize = 14;
         const columns = width / charSize;
-        const drops = [];
+        const drops = new Array(Math.ceil(columns)).fill(1);
 
-        for (let i = 0; i < columns; i++) {
-            drops[i] = 1;
-        }
-
+        // Optimeret tegning med RequestAnimationFrame
         function draw() {
             ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
             ctx.fillRect(0, 0, width, height);
@@ -147,43 +260,71 @@
             ctx.fillStyle = '#0f0';
             ctx.font = charSize + 'px monospace';
 
-            for (let i = 0; i < drops.length; i++) {
-                const char = chars.charAt(Math.floor(Math.random() * chars.length));
-                ctx.fillText(char, i * charSize, drops[i] * charSize);
+            drops.forEach((drop, i) => {
+                const char = chars[Math.floor(Math.random() * chars.length)];
+                const x = i * charSize;
+                const y = drop * charSize;
 
-                if (drops[i] * charSize > height && Math.random() > 0.975) {
+                // Tilføj variation i farveintensitet
+                const green = 200 + Math.random() * 55;
+                ctx.fillStyle = `rgb(0, ${green}, 0)`;
+
+                ctx.fillText(char, x, y);
+
+                if (y > height && Math.random() > 0.975) {
                     drops[i] = 0;
+                } else {
+                    drops[i]++;
                 }
-                drops[i]++;
-            }
+            });
+
+            requestAnimationFrame(draw);
         }
 
+        // Håndter vindue-størrelse ændringer
+        let resizeTimeout;
         window.addEventListener('resize', () => {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }, 200);
         });
 
-        setInterval(draw, 40);
+        // Start animation
+        requestAnimationFrame(draw);
 
-        // Image modal functionality
+        // Forbedret modal funktionalitet
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImage');
         const heroImg = document.querySelector('.hero-image');
 
+        // Preload billede
+        const preloadImage = new Image();
+        preloadImage.src = heroImg.src;
+
         heroImg.onclick = function() {
             modal.style.display = "block";
             modalImg.src = this.src;
-            modalImg.style.opacity = "1";
+            document.body.style.overflow = 'hidden';
         }
 
         modal.onclick = function() {
             this.style.display = "none";
+            document.body.style.overflow = '';
         }
 
+        // Keyboard navigation
         document.addEventListener('keydown', function(e) {
             if(e.key === 'Escape' && modal.style.display === "block") {
                 modal.style.display = "none";
+                document.body.style.overflow = '';
             }
+        });
+
+        // Fjern loading screen når siden er loaded
+        window.addEventListener('load', function() {
+            document.querySelector('.loading').style.display = 'none';
         });
     </script>
 </body>
