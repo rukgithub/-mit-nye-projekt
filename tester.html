@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allemandsret i Københavns Omegns Storkreds</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Allemandsret i Københavns Omegns Storkreds</h1>
+            <p class="subtitle">Udforsk mulighederne i din kommune</p>
+        </header>
+
+        <div class="main-content">
+            <div id="map"></div>
+            
+            <div class="info-panel">
+                <div class="kommune-info">
+                    <h2>Vælg en kommune</h2>
+                    <p>Klik på en kommune på kortet for at se detaljer om allemandsrettens betydning i området.</p>
+                </div>
+                
+                <div class="qa-section">
+                    <h3>Ofte stillede spørgsmål</h3>
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <button class="accordion-header">Hvad er allemandsret?</button>
+                            <div class="accordion-content">
+                                <p>Allemandsret er en ret til at færdes frit i naturen, også på private områder, under hensyntagen til naturen og lodsejere. Det omfatter muligheden for at vandre, cykle, plukke bær og svampe, samt overnatte i naturen.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header">Hvordan påvirker det mig?</button>
+                            <div class="accordion-content">
+                                <p>Med allemandsret får du bedre adgang til naturområder i din kommune, mulighed for at overnatte i det fri, og ret til at færdes på private naturarealer under ansvarlige forhold.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header">Hvad med private lodsejere?</button>
+                            <div class="accordion-content">
+                                <p>Allemandsretten respekterer private lodsejeres rettigheder og inkluderer klare regler om afstand til boliger, hensynsfuld færdsel og beskyttelse af dyrkede arealer.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
