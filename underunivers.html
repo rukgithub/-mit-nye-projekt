@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Underunivers</title>
+    <style>
+        :root {
+            --matrix-green: #00ff00;
+            --matrix-dark-green: #003300;
+            --matrix-black: #000000;
+            --matrix-blue: #00ffff;
+            --matrix-glow: #0f0;
+            --transition-speed: 0.3s;
+        }
+
+        body {
+            background-color: var(--matrix-black);
+            color: var(--matrix-green);
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 1rem;
+        }
+
+        .ai-links {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0;
+        }
+
+        .ai-links li {
+            margin: 0.5rem 0;
+        }
+
+        .ai-links a {
+            color: var(--matrix-blue);
+            text-decoration: none;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .ai-links a:hover {
+            color: var(--matrix-green);
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 2rem;
+            color: var(--matrix-blue);
+            text-decoration: none;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .back-link:hover {
+            color: var(--matrix-green);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Underunivers: Udforsk AI</h1>
+        <ul class="ai-links">
+            <li><a href="https://openai.com/" target="_blank" rel="noopener">OpenAI</a></li>
+            <li><a href="https://deepmind.google/" target="_blank" rel="noopener">Google DeepMind</a></li>
+            <li><a href="https://www.anthropic.com/" target="_blank" rel="noopener">Anthropic</a></li>
+            <li><a href="https://huggingface.co/" target="_blank" rel="noopener">Hugging Face</a></li>
+            <li><a href="https://www.nvidia.com/en-us/artificial-intelligence/" target="_blank" rel="noopener">NVIDIA AI</a></li>
+        </ul>
+        <a href="index.html" class="back-link">Tilbage til forsiden</a>
+    </div>
+</body>
+</html>
