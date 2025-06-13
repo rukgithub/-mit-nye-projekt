@@ -204,6 +204,31 @@
             text-shadow: 0 0 10px var(--matrix-blue);
         }
 
+        .underunivers {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .ai-links {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0;
+        }
+
+        .ai-links li {
+            margin: 0.5rem 0;
+        }
+
+        .ai-links a {
+            color: var(--matrix-blue);
+            text-decoration: none;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .ai-links a:hover {
+            color: var(--matrix-green);
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -244,6 +269,7 @@
                 padding: 0 20px;
                 text-align: center;
             }
+
         }
     </style>
 </head>
@@ -266,8 +292,19 @@
                 <p class="subtitle">Udforsk fremtidens intelligente matrix med Ruben</p>
                 <a href="#" class="cta-button">Start Din AI Rejse</a>
             </div>
-        </section>
+    </section>
     </div>
+
+    <section class="underunivers">
+        <h2>Underunivers: Udforsk AI</h2>
+        <ul class="ai-links">
+            <li><a href="https://openai.com/" target="_blank" rel="noopener">OpenAI</a></li>
+            <li><a href="https://deepmind.google/" target="_blank" rel="noopener">Google DeepMind</a></li>
+            <li><a href="https://www.anthropic.com/" target="_blank" rel="noopener">Anthropic</a></li>
+            <li><a href="https://huggingface.co/" target="_blank" rel="noopener">Hugging Face</a></li>
+            <li><a href="https://www.nvidia.com/en-us/artificial-intelligence/" target="_blank" rel="noopener">NVIDIA AI</a></li>
+        </ul>
+    </section>
 
     <script>
         // Optimeret Matrix Animation
